@@ -44,7 +44,7 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <p>© {new Date().getFullYear()} {site.brand.name}. All rights reserved.</p>
-        <p><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="https://unsplash.com/?utm_source=anytime_wellness&utm_medium=referral" target="_blank" rel="noreferrer">Photography</a></p>
+        <p><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></p>
       </div>
     </footer>
   );

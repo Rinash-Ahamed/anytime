@@ -1,5 +1,5 @@
 import { useState } from "react";
-import brandLogo from "../../brand/anytime-typeface.png";
+import brandMark from "../../brand/onlylogo-anytime.png";
 
 const links = [["top", "Home"], ["treatments", "Treatments"], ["philosophy", "Our Philosophy"], ["gallery", "Gallery"], ["contact", "Contact"]];
 
@@ -10,7 +10,10 @@ export default function Header({ solid }) {
     <header className={`header${solid ? " is-solid" : ""}${open ? " menu-open" : ""}`}>
       <div className="header__bar">
         <a className="brand" href="#top" aria-label="Anytime Wellness, home" onClick={close}>
-          <span className="brand__logo-frame"><img className="brand__logo" src={brandLogo} alt="Anytime Wellness" /></span>
+          <span className="brand__logo-frame">
+            <img className="brand__logo" src={brandMark} alt="" fetchPriority="high" />
+            <span className="brand__wordmark" aria-hidden="true"><strong>Anytime</strong><small>Wellness</small></span>
+          </span>
         </a>
         <nav className={`nav${open ? " is-open" : ""}`} id="nav" aria-label="Primary">
           {links.map(([id, label]) => <a key={id} href={`#${id}`} onClick={close}>{label}</a>)}

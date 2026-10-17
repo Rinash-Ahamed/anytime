@@ -4,7 +4,7 @@ import sportsRecoveryImage from "../../images/sports-recovery.jpg";
 import facialTreatmentImage from "../../images/facial-treatment.jpg";
 import facialCareImage from "../../images/facial-care.jpg";
 import spaInteriorImage from "../../images/spa-interior.jpg";
-import spaTowelsImage from "../../images/spa-towels.jpg";
+import maleWellnessImage from "../../images/male-wellness.jpg";
 import spaCandlesImage from "../../images/spa-candles.jpg";
 import spaDetailImage from "../../images/spa-detail.jpg";
 import spaOilsImage from "../../images/spa-oils.jpg";
@@ -28,7 +28,12 @@ export const treatments = [
   { id: "facial", number: "04", name: "Facial & De-Tan", description: "A considered skincare treatment that cleanses, refreshes and brings back an even, healthy-looking glow.", image: facialTreatmentImage, alt: "Therapist applying a facial treatment", brief: "Facial · soft towels · natural skin", layout: "d", photoClass: "photo--portrait" }
 ];
 
-export const experienceImage = spaTowelsImage;
+export const experienceImages = [
+  { src: maleWellnessImage, alt: "Man relaxing during a restorative back massage", position: "42% center" },
+  { src: fullBodyImage, alt: "Restorative full body massage treatment", position: "center" },
+  { src: deepTissueImage, alt: "Focused deep tissue massage treatment", position: "center" },
+  { src: sportsRecoveryImage, alt: "Focused sports recovery treatment", position: "center" }
+];
 
 export const gallery = [
   ["g1", "Close-up of a relaxing facial treatment", "Facial care", facialCareImage],

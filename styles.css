@@ -830,3 +830,166 @@ main,.footer{position:relative;z-index:1}
   .brand__logo-frame{width:96px;height:50px;padding-inline:5px}
 }
 
+/* ============ COMPACT + STABLE LAYOUT ============ */
+.liquid-site-bg{
+  position:absolute;
+  inset:0;
+  min-height:100%;
+  transform:none;
+  backface-visibility:visible;
+  contain:none;
+  background:linear-gradient(180deg,#fafaf7 0%,#e8f3ea 52%,#fafaf7 100%);
+}
+.section{padding-block:clamp(66px,7vw,104px)}
+.section__head{margin-bottom:clamp(32px,4.5vw,56px)}
+.display{font-size:clamp(2.65rem,4.8vw,5.1rem)}
+
+.treatments__head{gap:clamp(24px,5vw,72px)}
+.treatments__intro{gap:14px;padding-bottom:0}
+.treatments__grid{gap:clamp(14px,1.8vw,24px)}
+.treatments .svc{padding:8px;border-radius:24px;box-shadow:0 14px 42px rgba(8,47,40,.06)}
+.treatments .svc:hover{transform:none;box-shadow:0 20px 52px rgba(8,47,40,.1)}
+.treatments .svc__media,.treatments .svc__media .photo{border-radius:18px}
+.treatments .svc__media .photo{aspect-ratio:16/9}
+.treatments .svc__body{gap:14px;padding:clamp(18px,2.2vw,26px)}
+.svc__footer{padding-top:13px}
+
+.philosophy{gap:clamp(32px,5vw,72px)}
+.philosophy__body{gap:22px}
+.pillars{gap:10px}
+.pillars li{min-height:142px;padding:18px}
+.pillars h3{margin:4px 0 6px}
+
+.gallery .section__head{margin-bottom:42px}
+.mosaic{grid-auto-rows:clamp(52px,6vw,84px);gap:clamp(10px,1.2vw,16px)}
+
+.standards .section__head{margin-bottom:32px}
+.standards__grid{gap:12px}
+.standards__grid li,.standards__grid li:nth-child(-n+2){
+  min-height:210px;
+  padding:24px;
+  background:#fff;
+  transform:none;
+  box-shadow:0 10px 34px rgba(8,47,40,.045);
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease);
+}
+.standards__grid li:nth-child(2n){background:var(--paper)}
+.standards__grid li:hover{
+  transform:none;
+  background:#fff;
+  border-color:rgba(15,93,78,.25);
+  box-shadow:0 14px 38px rgba(8,47,40,.08);
+}
+.standards__grid li:nth-child(2n):hover{background:var(--paper)}
+.standards__grid svg{margin-bottom:24px}
+
+.book{gap:clamp(34px,5vw,72px);background:#0f5d4e}
+.book::after{display:none}
+.book__intro{gap:18px}
+.form{
+  gap:16px;
+  padding:clamp(24px,3vw,38px);
+  background:#fafaf7;
+  box-shadow:0 22px 64px rgba(8,47,40,.18);
+  isolation:isolate;
+}
+.field{gap:6px}
+.field-row{gap:14px}
+.field input,.field select,.field textarea{min-height:44px;padding:9px 12px;background:#edf5ee}
+.field textarea{min-height:72px}
+.form .btn--block::before{display:none}
+.form .btn--block:hover{background:var(--ink)}
+
+.footer{padding-top:clamp(62px,7vw,92px)}
+.footer__top{gap:clamp(46px,7vw,100px);padding-bottom:clamp(50px,6vw,76px)}
+.footer__brand{gap:16px}
+.footer__links{gap:24px}
+
+@media (max-width:760px){
+  .section{padding-block:58px}
+  .section__head{margin-bottom:32px}
+  .treatments .svc__media .photo{aspect-ratio:16/10}
+  .treatments .svc__body{padding:18px 14px}
+  .philosophy{padding-top:58px}
+  .pillars li{min-height:0}
+  .standards__grid li,.standards__grid li:nth-child(-n+2){min-height:0;padding:22px}
+  .book{gap:32px}
+  .form{padding:22px 18px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .standards__grid li:hover,.treatments .svc:hover{transform:none}
+}
+
+/* Navbar brand: use the standalone mark at a guaranteed readable size. */
+.brand{min-width:178px}
+.brand__logo-frame{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  width:auto;
+  min-width:174px;
+  height:56px;
+  padding:4px 14px 4px 7px;
+}
+.brand__logo,.header:not(.is-solid):not(.menu-open) .brand__logo,.header.menu-open .brand__logo{
+  flex:none;
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  transform:none;
+  filter:none;
+}
+.brand__wordmark{display:grid;gap:0;color:var(--forest);line-height:1}
+.brand__wordmark strong{font-family:var(--serif);font-size:1.12rem;font-weight:600;letter-spacing:-.025em}
+.brand__wordmark small{margin-top:4px;font-family:var(--sans);font-size:.48rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#548e62}
+
+@media (max-width:1080px) and (min-width:901px){
+  .brand{min-width:154px}
+  .brand__logo-frame{min-width:150px;padding-right:10px}
+  .brand__logo{width:42px;height:42px}
+  .brand__wordmark strong{font-size:1rem}
+}
+
+@media (max-width:900px){
+  .brand{min-width:158px}
+  .brand__logo-frame{min-width:154px;width:auto;height:52px;padding:3px 12px 3px 6px}
+  .brand__logo{width:43px;height:43px}
+  .brand__wordmark strong{font-size:1rem}
+  .brand__wordmark small{font-size:.43rem}
+}
+
+@media (max-width:380px){
+  .brand{min-width:142px}
+  .brand__logo-frame{min-width:138px;gap:6px;padding-right:9px}
+  .brand__logo{width:40px;height:40px}
+  .brand__wordmark strong{font-size:.92rem}
+}
+
+/* ============ PHILOSOPHY SLIDESHOW ============ */
+.philosophy__media{aspect-ratio:4/5}
+.philosophy__slideshow{position:relative;z-index:1;width:100%;height:100%;overflow:hidden;border-radius:30px;background:#061f1a;box-shadow:0 28px 72px rgba(0,0,0,.2)}
+.philosophy__slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.025);filter:saturate(.86) contrast(1.03);transition:opacity .5s ease,transform 1.5s var(--ease)}
+.philosophy__slide.is-active{opacity:1;transform:scale(1)}
+.philosophy__slideshow::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 64%,rgba(6,31,26,.58) 100%)}
+.philosophy__slide-nav{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:rgba(250,250,247,.85)}
+.philosophy__slide-nav>span{font-size:.6rem;font-weight:600;letter-spacing:.18em}
+.philosophy__slide-nav>div{display:flex;gap:6px}
+.philosophy__slide-nav button{width:24px;height:3px;padding:0;border:0;border-radius:999px;background:rgba(250,250,247,.3);cursor:pointer;transition:width .25s var(--ease),background .25s var(--ease)}
+.philosophy__slide-nav button.is-active{width:38px;background:#a8d1aa}
+.philosophy__slide-nav button:focus-visible{outline-color:var(--ivory);outline-offset:4px}
+
+@media (max-width:900px){
+  .philosophy__media{width:min(100%,620px);aspect-ratio:5/4}
+}
+
+@media (max-width:560px){
+  .philosophy__media{aspect-ratio:4/5;padding:8px 0 0 8px}
+  .philosophy__slideshow{border-radius:22px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .philosophy__slide{transition:none;transform:none}
+}
+
