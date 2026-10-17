@@ -1,0 +1,23 @@
+import { useState } from "react";
+import brandLogo from "../../brand/anytime-typeface.png";
+
+const links = [["top", "Home"], ["treatments", "Treatments"], ["philosophy", "Our Philosophy"], ["gallery", "Gallery"], ["contact", "Contact"]];
+
+export default function Header({ solid }) {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
+  return (
+    <header className={`header${solid ? " is-solid" : ""}${open ? " menu-open" : ""}`}>
+      <div className="header__bar">
+        <a className="brand" href="#top" aria-label="Anytime Wellness, home" onClick={close}>
+          <span className="brand__logo-frame"><img className="brand__logo" src={brandLogo} alt="Anytime Wellness" /></span>
+        </a>
+        <nav className={`nav${open ? " is-open" : ""}`} id="nav" aria-label="Primary">
+          {links.map(([id, label]) => <a key={id} href={`#${id}`} onClick={close}>{label}</a>)}
+        </nav>
+        <a className="btn btn--gold header__cta" href="#book">Book Your Experience <span aria-hidden="true">↗</span></a>
+        <button className="burger" aria-expanded={open} aria-controls="nav" aria-label={`${open ? "Close" : "Open"} menu`} onClick={() => setOpen(!open)}><span /><span /></button>
+      </div>
+    </header>
+  );
+}

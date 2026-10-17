@@ -1,0 +1,40 @@
+import fullBodyImage from "../../images/massage-full-body.jpg";
+import deepTissueImage from "../../images/massage-deep-tissue.jpg";
+import sportsRecoveryImage from "../../images/sports-recovery.jpg";
+import facialTreatmentImage from "../../images/facial-treatment.jpg";
+import facialCareImage from "../../images/facial-care.jpg";
+import spaInteriorImage from "../../images/spa-interior.jpg";
+import spaTowelsImage from "../../images/spa-towels.jpg";
+import spaCandlesImage from "../../images/spa-candles.jpg";
+import spaDetailImage from "../../images/spa-detail.jpg";
+import spaOilsImage from "../../images/spa-oils.jpg";
+import wellnessStonesImage from "../../images/wellness-stones.jpg";
+
+export const site = {
+  brand: { name: "ANYTIME", descriptor: "Wellness" },
+  contact: {
+    whatsappNumber: "919788723059",
+    phone: "+91 97887 23059",
+    email: "",
+    serviceArea: "Pollachi & Coimbatore",
+    hours: []
+  }
+};
+
+export const treatments = [
+  { id: "full-body", number: "01", name: "Full Body Massage", description: "A slow, unhurried treatment to ease everyday tension and leave you feeling settled from head to toe.", duration: "60 minutes", price: "₹799", image: fullBodyImage, alt: "Therapist performing a warm full body massage", brief: "Full body massage · linen · soft light", layout: "a", photoClass: "photo--tall" },
+  { id: "deep-tissue", number: "02", name: "Deep Tissue Massage", description: "Focused, deliberate pressure on areas that hold tension, applied with close attention to how your body responds.", image: deepTissueImage, alt: "Hands applying focused pressure during a deep tissue treatment", brief: "Focused pressure · restorative care", layout: "b", photoClass: "photo--wide" },
+  { id: "sports", number: "03", name: "Sports Massage", description: "Recovery-minded work for active bodies, shaped around the way you train, move and perform.", image: sportsRecoveryImage, alt: "Focused sports recovery treatment on the heel", brief: "Athletic recovery · clean · performance", layout: "c", photoClass: "photo--square" },
+  { id: "facial", number: "04", name: "Facial & De-Tan", description: "A considered skincare treatment that cleanses, refreshes and brings back an even, healthy-looking glow.", image: facialTreatmentImage, alt: "Therapist applying a facial treatment", brief: "Facial · soft towels · natural skin", layout: "d", photoClass: "photo--portrait" }
+];
+
+export const experienceImage = spaTowelsImage;
+
+export const gallery = [
+  ["g1", "Close-up of a relaxing facial treatment", "Facial care", facialCareImage],
+  ["g2", "Towels, skincare and flowers prepared for a wellness treatment", "Treatment details", spaInteriorImage],
+  ["g3", "Fresh green spa towels arranged in a calm room", "Fresh linens", spaCandlesImage],
+  ["g4", "White towels with a candle and natural brush", "Quiet details", spaDetailImage],
+  ["g5", "Neatly arranged spa towels in natural tones", "Prepared with care", spaOilsImage],
+  ["g6", "Cooling cucumber facial with soft towels and flowers", "Restore & refresh", wellnessStonesImage]
+];
