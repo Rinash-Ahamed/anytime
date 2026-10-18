@@ -49,8 +49,8 @@ export default function Hero() {
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__content">
-        <h1 className="hero__title">Reconnect with your <em>natural balance.</em></h1>
-        <p className="hero__lead">Thoughtful wellness treatments, delivered to your doorstep.</p>
+        <h1 className="hero__title">Feel restored, <em>right where you are.</em></h1>
+        <p className="hero__lead">Professional massage, facial and recovery treatments, thoughtfully delivered to your home across Pollachi and Coimbatore.</p>
         <div className="hero__cta">
           <a className="btn hero__primary" href="#book">Book Your Experience</a>
           <a className="btn hero__secondary" href="#treatments">Explore Treatments</a>
@@ -58,7 +58,7 @@ export default function Hero() {
       </div>
 
       <div className="hero__details" aria-label="Wellness services and locations">
-        <span>Massage · Facial · Recovery</span>
+        <span>Massage / Facial / Recovery</span>
         <span>Pollachi &amp; Coimbatore</span>
       </div>
 

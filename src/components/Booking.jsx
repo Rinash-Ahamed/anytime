@@ -1,6 +1,13 @@
 import { useMemo, useState } from "react";
 import { site, treatments } from "../data/site";
 
+const formatTime12Hour = (value) => {
+  const [hours, minutes] = value.split(":").map(Number);
+  if (!Number.isInteger(hours) || !Number.isInteger(minutes)) return value;
+  const period = hours >= 12 ? "PM" : "AM";
+  return `${hours % 12 || 12}:${String(minutes).padStart(2, "0")} ${period}`;
+};
+
 export default function Booking({ selected, onSelected }) {
   const [status, setStatus] = useState("");
   const today = useMemo(() => new Date().toISOString().slice(0, 10), []);
@@ -9,7 +16,7 @@ export default function Booking({ selected, onSelected }) {
     const form = event.currentTarget;
     if (!form.checkValidity()) { form.reportValidity(); setStatus("Please complete each required field."); return; }
     const data = Object.fromEntries(new FormData(form));
-    const message = [`Hello Alltime Wellness,`, `I would like to enquire about an appointment.`, ``, `Treatment: ${data.service}`, `Preferred date: ${data.date}`, `Preferred time: ${data.time}`, `Area: ${data.area}`, `Name: ${data.name}`, `Contact: ${data.phone}`, data.message ? `Message: ${data.message}` : ""].filter(Boolean).join("\n");
+    const message = [`Hello Alltime Wellness,`, `I would like to enquire about an appointment.`, ``, `Treatment: ${data.service}`, `Preferred date: ${data.date}`, `Preferred time: ${formatTime12Hour(data.time)}`, `Area: ${data.area}`, `Name: ${data.name}`, `Contact: ${data.phone}`, data.message ? `Message: ${data.message}` : ""].filter(Boolean).join("\n");
     window.open(`https://wa.me/${site.contact.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     form.reset();
     onSelected("");
