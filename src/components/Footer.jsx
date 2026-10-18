@@ -21,8 +21,10 @@ export default function Footer() {
             <h3 className="footer__h">Explore</h3>
             <ul className="footer__list">
               <li><a href="#top">Home</a></li>
+              <li><a href="#journey">How it works</a></li>
               <li><a href="#philosophy">Our philosophy</a></li>
               <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#book">Book a visit</a></li>
             </ul>
           </div>

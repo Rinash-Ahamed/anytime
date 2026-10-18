@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import brandMark from "../../brand/onlylogo-anytime.png";
 
-const links = [["top", "Home"], ["treatments", "Treatments"], ["philosophy", "Our Philosophy"], ["gallery", "Gallery"], ["contact", "Contact"]];
+const links = [["top", "Home"], ["treatments", "Treatments"], ["journey", "How it works"], ["philosophy", "Our Philosophy"], ["contact", "Contact"]];
 
 export default function Header({ solid }) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("has-menu", open);
+    return () => document.body.classList.remove("has-menu");
+  }, [open]);
+
   return (
     <header className={`header${solid ? " is-solid" : ""}${open ? " menu-open" : ""}`}>
       <div className="header__bar">

@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Treatments from "./components/Treatments";
 import { Gallery, Philosophy, Standards } from "./components/Experience";
+import JourneyFaq from "./components/JourneyFaq";
 import Booking from "./components/Booking";
 import Footer from "./components/Footer";
 
@@ -35,7 +36,7 @@ export default function App() {
       <div className="liquid-site-bg" aria-hidden="true" />
       <a className="skip" href="#main">Skip to content</a><div className="progress" aria-hidden="true" />
       <Header solid={solidHeader} />
-      <main id="main"><Hero /><Treatments onSelect={setSelectedTreatment} /><Philosophy /><Gallery /><Standards /><Booking selected={selectedTreatment} onSelected={setSelectedTreatment} /></main>
+      <main id="main"><Hero /><Treatments onSelect={setSelectedTreatment} /><JourneyFaq type="journey" /><Philosophy /><Gallery /><Standards /><JourneyFaq type="faq" /><Booking selected={selectedTreatment} onSelected={setSelectedTreatment} /></main>
       <Footer />
     </>
   );

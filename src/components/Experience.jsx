@@ -3,23 +3,24 @@ import Photo from "./Photo";
 import { experienceImages, gallery } from "../data/site";
 
 const pillars = [
-  ["I", "Personalised treatments", "Each session is adjusted to what your body needs on the day."],
-  ["II", "Professional care", "Calm, respectful and attentive from the first hello to the last moment."],
-  ["III", "Calm, at home", "We bring the calm to you, so you can switch off without leaving your space."],
-  ["IV", "Attention to detail", "Considered products and a tidy, quiet setup, so everything feels effortless."]
+  ["Personalised treatments", "Each session is adjusted to what your body needs on the day."],
+  ["Professional care", "Calm, respectful and attentive from the first hello to the last moment."],
+  ["Calm, at home", "We bring the calm to you, so you can switch off without leaving your space."],
+  ["Attention to detail", "Considered products and a tidy, quiet setup, so everything feels effortless."]
 ];
 
 export function Philosophy() {
   const [activeImage, setActiveImage] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (motionQuery.matches) return undefined;
+    if (motionQuery.matches || isPaused) return undefined;
     const timer = window.setInterval(() => {
       setActiveImage((current) => (current + 1) % experienceImages.length);
     }, 1500);
     return () => window.clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   return (
     <section className="section philosophy" id="philosophy">
@@ -38,11 +39,14 @@ export function Philosophy() {
           ))}
           <div className="philosophy__slide-nav" aria-label="Choose experience image">
             <span>{String(activeImage + 1).padStart(2, "0")} / {String(experienceImages.length).padStart(2, "0")}</span>
-            <div>{experienceImages.map((image, index) => <button key={image.src} type="button" className={index === activeImage ? "is-active" : ""} aria-label={`Show image ${index + 1}`} aria-current={index === activeImage ? "true" : undefined} onClick={() => setActiveImage(index)} />)}</div>
+            <div className="philosophy__slide-actions">
+              <div className="philosophy__dots">{experienceImages.map((image, index) => <button key={image.src} type="button" className={index === activeImage ? "is-active" : ""} aria-label={`Show image ${index + 1}`} aria-current={index === activeImage ? "true" : undefined} onClick={() => setActiveImage(index)} />)}</div>
+              <button className="philosophy__pause" type="button" aria-label={isPaused ? "Resume image slideshow" : "Pause image slideshow"} aria-pressed={isPaused} onClick={() => setIsPaused((paused) => !paused)}>{isPaused ? "Play" : "Pause"}</button>
+            </div>
           </div>
         </div>
       </div>
-      <div className="philosophy__body"><h2 className="display display--light reveal">Wellness,<br /><em>thoughtfully reimagined.</em></h2><p className="lede reveal">Every visit begins with listening. From there, the pace and pressure are shaped around you, in the comfort of your own home.</p><ul className="pillars">{pillars.map(([num, title, copy]) => <li className="reveal" key={num}><span>{num}</span><h3>{title}</h3><p>{copy}</p></li>)}</ul></div>
+      <div className="philosophy__body"><h2 className="display display--light reveal">Wellness,<br /><em>thoughtfully reimagined.</em></h2><p className="lede reveal">Every visit begins with listening. From there, the pace and pressure are shaped around you, in the comfort of your own home.</p><ul className="pillars">{pillars.map(([title, copy]) => <li className="reveal" key={title}><h3>{title}</h3><p>{copy}</p></li>)}</ul></div>
     </section>
   );
 }

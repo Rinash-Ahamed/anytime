@@ -49,9 +49,8 @@ export default function Hero() {
       <div className="hero__overlay" aria-hidden="true" />
 
       <div className="hero__content">
-        <p className="hero__eyebrow">Your moment of wellness</p>
         <h1 className="hero__title">Reconnect with your <em>natural balance.</em></h1>
-        <p className="hero__lead">Discover restorative therapies and thoughtful care designed to help you relax, recover, and feel renewed.</p>
+        <p className="hero__lead">Thoughtful wellness treatments, delivered to your doorstep.</p>
         <div className="hero__cta">
           <a className="btn hero__primary" href="#book">Book Your Experience</a>
           <a className="btn hero__secondary" href="#treatments">Explore Treatments</a>

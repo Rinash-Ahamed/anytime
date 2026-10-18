@@ -15,7 +15,7 @@ function Treatment({ treatment, onSelect }) {
         </div>
         <p className="svc__desc">{treatment.description}</p>
         <div className="svc__footer">
-          {treatment.price ? <span className="svc__price">{treatment.price}</span> : <span className="svc__price svc__price--quiet">Tailored to you</span>}
+          {treatment.price ? <span className="svc__price">{treatment.price}</span> : <span className="svc__price svc__price--quiet">Ask for details</span>}
           <a className="link" href="#book" onClick={() => onSelect(treatment.name)}>Choose treatment <span aria-hidden="true">↗</span></a>
         </div>
       </div>
