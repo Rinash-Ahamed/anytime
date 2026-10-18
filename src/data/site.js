@@ -2,7 +2,7 @@ import deepTissueImage from "../../images/massage-deep-tissue.jpg";
 import sportsRecoveryImage from "../../images/sports-recovery.jpg";
 import maleFacialImage from "../../images/male-facial-treatment.jpg";
 import maleShoulderImage from "../../images/male-shoulder-massage.jpg";
-import facialCareImage from "../../images/facial-care.jpg";
+import maleFacialMaskImage from "../../images/male-facial-mask.jpg";
 import spaInteriorImage from "../../images/spa-interior.jpg";
 import maleWellnessImage from "../../images/male-wellness.jpg";
 import spaCandlesImage from "../../images/spa-candles.jpg";
@@ -22,10 +22,10 @@ export const site = {
 };
 
 export const treatments = [
-  { id: "full-body", number: "01", name: "Full Body Massage", description: "A slow, unhurried treatment to ease everyday tension and leave you feeling settled from head to toe.", duration: "60 minutes", price: "₹799", image: maleShoulderImage, alt: "Man receiving a relaxing shoulder massage", brief: "Full body massage · linen · soft light", layout: "a", photoClass: "photo--tall" },
-  { id: "deep-tissue", number: "02", name: "Deep Tissue Massage", description: "Focused, deliberate pressure on areas that hold tension, applied with close attention to how your body responds.", image: deepTissueImage, alt: "Hands applying focused pressure during a deep tissue treatment", brief: "Focused pressure · restorative care", layout: "b", photoClass: "photo--wide" },
-  { id: "sports", number: "03", name: "Sports Massage", description: "Recovery-minded work for active bodies, shaped around the way you train, move and perform.", image: sportsRecoveryImage, alt: "Focused sports recovery treatment on the heel", brief: "Athletic recovery · clean · performance", layout: "c", photoClass: "photo--square" },
-  { id: "facial", number: "04", name: "Facial & De-Tan", description: "A considered skincare treatment that cleanses, refreshes and brings back an even, healthy-looking glow.", image: maleFacialImage, alt: "Man receiving a calming facial treatment", brief: "Facial · soft towels · natural skin", layout: "d", photoClass: "photo--portrait" }
+  { id: "full-body", number: "01", name: "Full Body Massage", description: "A slow, unhurried treatment to ease everyday tension and leave you feeling settled from head to toe.", duration: "1 hr 30 min", price: "₹1,600", image: maleShoulderImage, alt: "Man receiving a relaxing shoulder massage", brief: "Full body massage · linen · soft light", layout: "a", photoClass: "photo--tall" },
+  { id: "deep-tissue", number: "02", name: "Deep Tissue Massage", description: "Focused, deliberate pressure on areas that hold tension, applied with close attention to how your body responds.", duration: "1 hr", price: "₹1,000", image: deepTissueImage, alt: "Hands applying focused pressure during a deep tissue treatment", brief: "Focused pressure · restorative care", layout: "b", photoClass: "photo--wide" },
+  { id: "foot-massage", number: "03", name: "Foot Massage", description: "Focused care for tired feet to ease everyday pressure, encourage relaxation and leave each step feeling lighter.", duration: "30 min", price: "₹600", image: sportsRecoveryImage, alt: "Focused massage treatment on the foot and heel", brief: "Foot massage · restorative care", layout: "c", photoClass: "photo--square" },
+  { id: "facial", number: "04", name: "Facial & De-Tan", description: "A considered skincare treatment that cleanses, refreshes and brings back an even, healthy-looking glow.", duration: "1 hr 30 min", price: "₹2,000", image: maleFacialImage, alt: "Man receiving a calming facial treatment", brief: "Facial · soft towels · natural skin", layout: "d", photoClass: "photo--portrait" }
 ];
 
 export const experienceImages = [
@@ -36,7 +36,7 @@ export const experienceImages = [
 ];
 
 export const gallery = [
-  ["g1", "Close-up of a relaxing facial treatment", "Facial care", facialCareImage],
+  ["g1", "Man enjoying a refreshing facial mask treatment", "Facial care", maleFacialMaskImage],
   ["g2", "Towels, skincare and flowers prepared for a wellness treatment", "Treatment details", spaInteriorImage],
   ["g3", "Fresh green spa towels arranged in a calm room", "Fresh linens", spaCandlesImage],
   ["g4", "White towels with a candle and natural brush", "Quiet details", spaDetailImage],

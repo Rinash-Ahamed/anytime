@@ -11,11 +11,13 @@ function Treatment({ treatment, onSelect }) {
       <div className="svc__body">
         <div className="svc__heading">
           <h3 className="svc__name">{treatment.name}</h3>
-          {treatment.duration && <span className="svc__duration">{treatment.duration}</span>}
         </div>
         <p className="svc__desc">{treatment.description}</p>
         <div className="svc__footer">
-          {treatment.price ? <span className="svc__price">{treatment.price}</span> : <span className="svc__price svc__price--quiet">Ask for details</span>}
+          <div className="svc__facts">
+            {treatment.price ? <span className="svc__price">{treatment.price}</span> : <span className="svc__price svc__price--quiet">Ask for details</span>}
+            {treatment.duration && <span className="svc__duration"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.5" /><path d="M10 5.8V10l3 1.8" /></svg>{treatment.duration}</span>}
+          </div>
           <a className="link" href="#book" onClick={() => onSelect(treatment.name)}>Choose treatment <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -30,7 +32,6 @@ export default function Treatments({ onSelect }) {
         <h2 className="display">Care that meets you <em>where you are.</em></h2>
         <div className="treatments__intro">
           <p>Four focused experiences, each adapted to how you feel on the day and delivered in the comfort of your own space.</p>
-          <span>01 — Treatments</span>
         </div>
       </header>
       <div className="treatments__grid">

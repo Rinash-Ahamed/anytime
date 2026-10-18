@@ -12,10 +12,10 @@ Create a production build with `npm run build`. The generated site is written to
 
 ## Structure
 
-- `src/components/` — layout and section components
-- `src/data/site.js` — treatments and business details
-- `src/App.jsx` — page composition and global interactions
-- `styles.css` — existing brand and responsive styles
+- `src/components/` - layout and section components
+- `src/data/site.js` - treatments and business details
+- `src/App.jsx` - page composition and global interactions
+- `styles.css` - existing brand and responsive styles
 
 ## Edit details
 All business details are in `site.config.js`: WhatsApp number, phone, email, hours, social links, and each treatment's duration and price (empty values stay hidden).
@@ -25,8 +25,8 @@ Approved Unsplash wellness photography is stored locally in `images/` and mapped
 
 ## Logo files (`brand/`)
 
-- `anytime-typeface.png` — full Anytime Wellness lockup used in the header and footer
-- `onlylogo-anytime.png` — standalone mark used as the browser icon and for compact branding
+- `anytime-typeface.png` - full Anytime Wellness lockup used in the header and footer
+- `onlylogo-anytime.png` - standalone mark used as the browser icon and for compact branding
 
 The previous generated SVG marks and temporary treatment images have been removed.
 

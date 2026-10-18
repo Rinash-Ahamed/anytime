@@ -1,20 +1,26 @@
 const steps = [
   {
-    number: "01",
+    icon: "care",
     title: "Choose your care",
     copy: "Explore the treatments, then select the experience that best matches how you want to feel.",
   },
   {
-    number: "02",
+    icon: "calendar",
     title: "Share your preference",
     copy: "Tell us your preferred date, time and whether your home visit is in Pollachi or Coimbatore.",
   },
   {
-    number: "03",
+    icon: "chat",
     title: "Confirm on WhatsApp",
     copy: "Your enquiry opens in WhatsApp. Your appointment is confirmed only after Anytime Wellness replies.",
   },
 ];
+
+function StepIcon({ type }) {
+  if (type === "care") return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27C9 22 5 17.8 5 12.7A5.7 5.7 0 0 1 15.4 9.5L16 10l.6-.5A5.7 5.7 0 0 1 27 12.7C27 17.8 23 22 16 27Z" /><path d="M16 10v10M11 15h10" /></svg>;
+  if (type === "calendar") return <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2" /><path d="M10 4v6M22 4v6M5 13h22M11 19h3M18 19h3" /></svg>;
+  return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7h20v15H15l-6 5v-5H6V7Z" /><path d="m12 15 3 3 6-7" /></svg>;
+}
 
 const questions = [
   {
@@ -48,8 +54,8 @@ function Journey() {
       </header>
       <ol className="journey__steps">
         {steps.map((step) => (
-          <li className="journey__step reveal" key={step.number}>
-            <span>{step.number}</span>
+          <li className="journey__step reveal" key={step.title}>
+            <div className="journey__icon"><StepIcon type={step.icon} /></div>
             <h3>{step.title}</h3>
             <p>{step.copy}</p>
           </li>

@@ -1,9 +1,24 @@
 import { site, treatments } from "../data/site";
 import brandMark from "../../brand/onlylogo-anytime.png";
+import footerVideo from "../../brand/footer.mp4";
 
 export default function Footer() {
   return (
     <footer className="footer" id="contact">
+      <div className="footer__media" aria-hidden="true">
+        <video
+          className="footer__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          tabIndex={-1}
+        >
+          <source src={footerVideo} type="video/mp4" />
+        </video>
+      </div>
+
       <div className="footer__top">
         <div className="footer__brand">
           <a className="footer__logo-frame" href="#top" aria-label="Anytime Wellness, back to top">

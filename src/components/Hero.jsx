@@ -37,7 +37,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             poster={heroPoster}
             tabIndex="-1"
             onError={() => setVideoFailed(true)}
