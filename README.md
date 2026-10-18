@@ -1,4 +1,4 @@
-# Anytime Wellness website
+# Alltime Wellness website
 
 This site uses React 19 and Vite. The page is split into focused components, with content and business details kept in a shared data module.
 
@@ -25,8 +25,8 @@ Approved Unsplash wellness photography is stored locally in `images/` and mapped
 
 ## Logo files (`brand/`)
 
-- `anytime-typeface.png` - full Anytime Wellness lockup used in the header and footer
-- `onlylogo-anytime.png` - standalone mark used as the browser icon and for compact branding
+- `legacy-typeface.png` - legacy full lockup retained only as a source asset
+- `onlylogo-alltime.png` - standalone mark used as the browser icon and for compact branding
 
 The previous generated SVG marks and temporary treatment images have been removed.
 

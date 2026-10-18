@@ -25,7 +25,7 @@ export function Philosophy() {
   return (
     <section className="section philosophy" id="philosophy">
       <div className="philosophy__media">
-        <div className="philosophy__slideshow" role="group" aria-roledescription="carousel" aria-label="Anytime Wellness treatment experience">
+        <div className="philosophy__slideshow" role="group" aria-roledescription="carousel" aria-label="Alltime Wellness treatment experience">
           {experienceImages.map((image, index) => (
             <img
               key={image.src}

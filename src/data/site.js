@@ -11,7 +11,7 @@ import spaOilsImage from "../../images/spa-oils.jpg";
 import wellnessStonesImage from "../../images/wellness-stones.jpg";
 
 export const site = {
-  brand: { name: "ANYTIME", descriptor: "Wellness" },
+  brand: { name: "ALLTIME", descriptor: "Wellness" },
   contact: {
     whatsappNumber: "919788723059",
     phone: "+91 97887 23059",

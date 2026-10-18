@@ -1,5 +1,5 @@
 import { site, treatments } from "../data/site";
-import brandMark from "../../brand/onlylogo-anytime.png";
+import brandMark from "../../brand/onlylogo-alltime.png";
 import footerVideo from "../../brand/footer.mp4";
 
 export default function Footer() {
@@ -21,8 +21,8 @@ export default function Footer() {
 
       <div className="footer__top">
         <div className="footer__brand">
-          <a className="footer__logo-frame" href="#top" aria-label="Anytime Wellness, back to top">
-            <img className="footer__logo" src={brandMark} alt="Anytime Wellness" />
+          <a className="footer__logo-frame" href="#top" aria-label="Alltime Wellness, back to top">
+            <img className="footer__logo" src={brandMark} alt="Alltime Wellness" />
           </a>
           <h2 className="footer__statement">Make space to feel <em>better.</em></h2>
           <p className="footer__about">Thoughtful wellness care, brought into the comfort of your home across Pollachi and Coimbatore.</p>

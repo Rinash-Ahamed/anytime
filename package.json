@@ -1,8 +1,8 @@
 {
-  "name": "anytime-wellness",
-  "version": "1.0.0",
+  "name": "alltime-wellness",
+  "version": "4.1.0",
   "private": true,
-  "description": "Anytime Wellness React website",
+  "description": "Alltime Wellness React website",
   "type": "module",
   "scripts": {
     "dev": "vite",

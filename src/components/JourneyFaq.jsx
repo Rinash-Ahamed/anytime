@@ -12,7 +12,7 @@ const steps = [
   {
     icon: "chat",
     title: "Confirm on WhatsApp",
-    copy: "Your enquiry opens in WhatsApp. Your appointment is confirmed only after Anytime Wellness replies.",
+    copy: "Your enquiry opens in WhatsApp. Your appointment is confirmed only after Alltime Wellness replies.",
   },
 ];
 
@@ -25,11 +25,11 @@ function StepIcon({ type }) {
 const questions = [
   {
     question: "Where are home visits available?",
-    answer: "Anytime Wellness currently lists home service across Pollachi and Coimbatore.",
+    answer: "Alltime Wellness currently lists home service across Pollachi and Coimbatore.",
   },
   {
     question: "Is my appointment confirmed when I submit the form?",
-    answer: "The form prepares a WhatsApp enquiry with your preferences. Your appointment is confirmed after you receive a reply from Anytime Wellness.",
+    answer: "The form prepares a WhatsApp enquiry with your preferences. Your appointment is confirmed after you receive a reply from Alltime Wellness.",
   },
   {
     question: "How should I prepare for a home treatment?",
@@ -41,7 +41,7 @@ const questions = [
   },
   {
     question: "What if I am unsure which treatment to choose?",
-    answer: "Review the treatment descriptions or message Anytime Wellness on WhatsApp before sending your enquiry.",
+    answer: "Review the treatment descriptions or message Alltime Wellness on WhatsApp before sending your enquiry.",
   },
 ];
 

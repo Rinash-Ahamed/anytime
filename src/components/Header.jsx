@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import brandMark from "../../brand/onlylogo-anytime.png";
+import brandMark from "../../brand/onlylogo-alltime.png";
 
 const links = [["top", "Home"], ["treatments", "Treatments"], ["journey", "How it works"], ["philosophy", "Our Philosophy"], ["contact", "Contact"]];
 
@@ -15,10 +15,10 @@ export default function Header({ solid }) {
   return (
     <header className={`header${solid ? " is-solid" : ""}${open ? " menu-open" : ""}`}>
       <div className="header__bar">
-        <a className="brand" href="#top" aria-label="Anytime Wellness, home" onClick={close}>
+        <a className="brand" href="#top" aria-label="Alltime Wellness, home" onClick={close}>
           <span className="brand__logo-frame">
             <img className="brand__logo" src={brandMark} alt="" fetchPriority="high" />
-            <span className="brand__wordmark" aria-hidden="true"><strong>Anytime</strong><small>Wellness</small></span>
+            <span className="brand__wordmark" aria-hidden="true"><strong>Alltime</strong><small>Wellness</small></span>
           </span>
         </a>
         <nav className={`nav${open ? " is-open" : ""}`} id="nav" aria-label="Primary">

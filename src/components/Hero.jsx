@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import heroVideo from "../../brand/anytime-hero.mp4";
-import heroPoster from "../../brand/anytime-hero-poster.jpg";
+import heroVideo from "../../brand/alltime-hero.mp4";
+import heroPoster from "../../brand/alltime-hero-poster.jpg";
 
 export default function Hero() {
   const videoRef = useRef(null);

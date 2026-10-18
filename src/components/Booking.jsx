@@ -9,7 +9,7 @@ export default function Booking({ selected, onSelected }) {
     const form = event.currentTarget;
     if (!form.checkValidity()) { form.reportValidity(); setStatus("Please complete each required field."); return; }
     const data = Object.fromEntries(new FormData(form));
-    const message = [`Hello Anytime Wellness,`, `I would like to enquire about an appointment.`, ``, `Treatment: ${data.service}`, `Preferred date: ${data.date}`, `Preferred time: ${data.time}`, `Area: ${data.area}`, `Name: ${data.name}`, `Contact: ${data.phone}`, data.message ? `Message: ${data.message}` : ""].filter(Boolean).join("\n");
+    const message = [`Hello Alltime Wellness,`, `I would like to enquire about an appointment.`, ``, `Treatment: ${data.service}`, `Preferred date: ${data.date}`, `Preferred time: ${data.time}`, `Area: ${data.area}`, `Name: ${data.name}`, `Contact: ${data.phone}`, data.message ? `Message: ${data.message}` : ""].filter(Boolean).join("\n");
     window.open(`https://wa.me/${site.contact.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     form.reset();
     onSelected("");
