@@ -8,7 +8,7 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
 ::-webkit-scrollbar-thumb{border:3px solid #e5eee6;border-radius:999px;background:var(--forest)}
 ::-webkit-scrollbar-thumb:hover{background:var(--sage)}
 .section{padding:clamp(68px,7.5vw,112px) max(var(--pad),calc((100vw - 1420px)/2))}
-.display{font-size:clamp(2.7rem,4.8vw,5.2rem);font-weight:500;letter-spacing:-.042em}
+.display{font-size:clamp(2.7rem,4.8vw,5.2rem);font-weight:500;line-height:1.03;letter-spacing:-.042em}
 .display em{font-style:italic;font-weight:400}
 
 /* Initial brand reveal while the hero video buffers behind it. */
@@ -60,7 +60,7 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
 .hero__overlay{background:linear-gradient(90deg,rgba(4,31,26,.03) 0%,rgba(4,31,26,.08) 35%,rgba(4,31,26,.58) 63%,rgba(4,31,26,.92) 100%),linear-gradient(180deg,rgba(4,31,26,.25) 0%,transparent 26%,transparent 66%,rgba(4,31,26,.62) 100%)}
 .hero--cinematic::after{box-shadow:inset 0 0 110px rgba(4,31,26,.14)}
 .hero__content{width:min(47vw,690px);gap:clamp(17px,2vw,27px);text-shadow:0 3px 30px rgba(2,28,23,.34)}
-.hero--cinematic .hero__title{max-width:10ch;font-size:clamp(3.5rem,5.5vw,6.4rem);font-weight:500;line-height:.94;letter-spacing:-.052em}
+.hero--cinematic .hero__title{max-width:10ch;font-size:clamp(3.5rem,5.5vw,6.4rem);font-weight:500;line-height:1;letter-spacing:-.052em}
 .hero--cinematic .hero__title em{font-weight:400;color:#acd4ae}
 .hero--cinematic .hero__lead{max-width:34rem;line-height:1.65}
 .hero--cinematic .btn{min-height:54px;padding-inline:25px;border-radius:9px}
@@ -289,8 +289,18 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
 .standards__grid li:hover,.standards__grid li:nth-child(2n):hover{border:0;background:#0f5d4e;box-shadow:0 18px 42px rgba(8,47,40,.12)}
 .standards__grid svg{border:0;border-radius:50%;background:#d9bf83}
 
-/* FAQ belongs to the same quiet chapter; its rules remain because they aid scanning. */
-.faq{padding-top:clamp(72px,7vw,104px);padding-bottom:clamp(110px,11vw,166px);background:#fafaf7}
+/* Testimonials overlap the standards chapter, then FAQ enters on a calm organic crest. */
+.testimonials{
+  position:relative;z-index:3;margin-top:-30px;border-radius:0 clamp(58px,8vw,112px) 0 0
+}
+.faq{
+  position:relative;z-index:4;isolation:isolate;padding-top:clamp(106px,10vw,146px);padding-bottom:clamp(110px,11vw,166px);background:#fafaf7
+}
+.faq::before{
+  content:"";position:absolute;z-index:0;left:-2%;right:-2%;top:-58px;height:60px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath fill='%23fafaf7' d='M0 44C174 64 326 23 502 34C688 45 823 74 1028 42C1207 14 1332 31 1440 12V80H0Z'/%3E%3C/svg%3E") center bottom/100% 100% no-repeat
+}
+.faq>*{position:relative;z-index:1}
 
 /* Finish on a bold forest feature block with a single asymmetric crest. */
 .book{
@@ -330,7 +340,9 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
   .mosaic .photo{border-radius:28px 10px 28px 10px}
   .mosaic .t2,.mosaic .t5{transform:none}
   .standards{margin-top:-42px;padding-top:88px;border-radius:58px 0 0}
-  .faq{padding-top:62px;padding-bottom:102px}
+  .testimonials{margin-top:-20px;border-radius:0 54px 0 0}
+  .faq{padding-top:84px;padding-bottom:102px}
+  .faq::before{top:-38px;height:40px}
   .book{padding-top:112px}.book::before{top:-44px;height:46px}
 }
 
@@ -434,7 +446,7 @@ p{max-width:70ch;text-wrap:pretty}
 .testimonials__rail{padding-top:14px;padding-bottom:32px}
 .testimonial__card{min-height:286px;padding:clamp(26px,2.6vw,34px);gap:22px}
 
-.faq{gap:clamp(34px,6vw,86px);padding-top:clamp(58px,6vw,86px);padding-bottom:clamp(86px,8vw,118px)}
+.faq{gap:clamp(34px,6vw,86px);padding-top:clamp(78px,7vw,104px);padding-bottom:clamp(86px,8vw,118px)}
 .faq__intro{gap:18px}
 .faq__item summary{padding-block:21px}
 
@@ -469,7 +481,7 @@ p{max-width:70ch;text-wrap:pretty}
   .testimonials{padding-top:52px;padding-bottom:48px;gap:26px}
   .testimonials__rail{padding-bottom:24px}
   .testimonial__card{min-height:276px}
-  .faq{padding-top:52px;padding-bottom:78px;gap:30px}
+  .faq{padding-top:68px;padding-bottom:78px;gap:30px}
   .book{padding-top:86px;padding-bottom:58px;gap:28px}
   .footer{padding-top:54px}
   .footer__top{gap:38px;padding-bottom:42px}
@@ -480,6 +492,10 @@ p{max-width:70ch;text-wrap:pretty}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .display em,
   .hero--cinematic .hero__title em{
+    padding-bottom:.1em;
+    margin-bottom:-.1em;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
     background-image:linear-gradient(100deg,#0f5d4e 0%,#7cb77e 32%,#b08d4f 58%,#0f5d4e 100%);
     background-position:0% 50%;
     background-repeat:no-repeat;

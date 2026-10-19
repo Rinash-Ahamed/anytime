@@ -1,14 +1,42 @@
+import { useEffect, useRef } from "react";
 import { site, treatments } from "../data/site";
 import brandMark from "../../brand/onlylogo-alltime.png";
 import footerVideo from "../../brand/footer.mp4";
 
 export default function Footer() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let isVisible = false;
+    const syncPlayback = () => {
+      if (motionQuery.matches || !isVisible) {
+        video.pause();
+      } else {
+        video.play().catch(() => {});
+      }
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      syncPlayback();
+    }, { rootMargin: "300px 0px", threshold: 0.01 });
+
+    observer.observe(video);
+    motionQuery.addEventListener?.("change", syncPlayback);
+    return () => {
+      observer.disconnect();
+      motionQuery.removeEventListener?.("change", syncPlayback);
+    };
+  }, []);
+
   return (
     <footer className="footer" id="contact">
       <div className="footer__media" aria-hidden="true">
         <video
+          ref={videoRef}
           className="footer__video"
-          autoPlay
           muted
           loop
           playsInline

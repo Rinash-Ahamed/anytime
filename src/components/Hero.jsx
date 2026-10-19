@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import heroVideo from "../../brand/alltime-hero-web.mp4";
+import heroVideo from "../../brand/alltime-upscaled.mp4";
 import heroPoster from "../../brand/alltime-hero-poster.jpg";
 
 export default function Hero({ onReady }) {
@@ -7,19 +7,30 @@ export default function Hero({ onReady }) {
   const [videoFailed, setVideoFailed] = useState(false);
 
   useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let isVisible = true;
     const syncPlayback = () => {
-      if (!videoRef.current) return;
-      if (motionQuery.matches) {
-        videoRef.current.pause();
+      if (motionQuery.matches || !isVisible) {
+        video.pause();
       } else {
-        videoRef.current.play().catch(() => {});
+        video.play().catch(() => {});
       }
     };
 
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+      syncPlayback();
+    }, { threshold: 0.05 });
+
+    observer.observe(video);
     syncPlayback();
     motionQuery.addEventListener?.("change", syncPlayback);
-    return () => motionQuery.removeEventListener?.("change", syncPlayback);
+    return () => {
+      observer.disconnect();
+      motionQuery.removeEventListener?.("change", syncPlayback);
+    };
   }, []);
 
   return (
