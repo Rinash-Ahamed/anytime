@@ -53,7 +53,7 @@ export function Philosophy() {
 
 export function Gallery() {
   return (
-    <section className="section gallery" id="gallery"><header className="section__head reveal"><h2 className="display">The calm,<br /><em>delivered.</em></h2></header><div className="mosaic">{gallery.map(([id, alt, brief, src], index) => <Photo key={id} id={id} src={src} alt={alt} brief={brief} className={`tile t${index + 1} reveal`} />)}</div></section>
+    <section className="section gallery" id="gallery"><header className="section__head reveal"><h2 className="display">The calm,<br /><em>delivered.</em></h2></header><div className="mosaic">{gallery.map(([id, alt, src], index) => <Photo key={id} src={src} alt={alt} className={`tile t${index + 1} reveal`} />)}</div></section>
   );
 }
 

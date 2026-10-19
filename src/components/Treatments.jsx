@@ -5,7 +5,7 @@ function Treatment({ treatment, onSelect }) {
   return (
     <article className="svc reveal">
       <div className="svc__media">
-        <Photo id={treatment.id} src={treatment.image} alt={treatment.alt} brief={treatment.brief} />
+        <Photo src={treatment.image} alt={treatment.alt} />
         <span className="svc__num">{treatment.number}</span>
       </div>
       <div className="svc__body">

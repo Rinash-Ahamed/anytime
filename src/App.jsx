@@ -7,10 +7,12 @@ import JourneyFaq from "./components/JourneyFaq";
 import Testimonials from "./components/Testimonials";
 import Booking from "./components/Booking";
 import Footer from "./components/Footer";
+import InitialLoader from "./components/InitialLoader";
 
 export default function App() {
   const [solidHeader, setSolidHeader] = useState(false);
   const [selectedTreatment, setSelectedTreatment] = useState("");
+  const [heroReady, setHeroReady] = useState(false);
 
   useEffect(() => {
     document.body.classList.add("is-ready");
@@ -27,17 +29,18 @@ export default function App() {
     const hashTimer = window.setTimeout(() => {
       const hash = window.location.hash.slice(1);
       const target = hash ? document.getElementById(decodeURIComponent(hash)) : null;
-      if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (target) target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
     }, 0);
     return () => { window.clearTimeout(hashTimer); observer.disconnect(); window.removeEventListener("scroll", onScroll); document.body.classList.remove("is-ready"); };
   }, []);
 
   return (
     <>
-      <div className="liquid-site-bg" aria-hidden="true" />
+      <InitialLoader ready={heroReady} />
       <a className="skip" href="#main">Skip to content</a><div className="progress" aria-hidden="true" />
       <Header solid={solidHeader} />
-      <main id="main"><Hero /><Treatments onSelect={setSelectedTreatment} /><JourneyFaq type="journey" /><Philosophy /><Gallery /><Standards /><Testimonials /><JourneyFaq type="faq" /><Booking selected={selectedTreatment} onSelected={setSelectedTreatment} /></main>
+      <main id="main"><Hero onReady={() => setHeroReady(true)} /><Treatments onSelect={setSelectedTreatment} /><JourneyFaq type="journey" /><Philosophy /><Gallery /><Standards /><Testimonials /><JourneyFaq type="faq" /><Booking selected={selectedTreatment} onSelected={setSelectedTreatment} /></main>
       <Footer />
     </>
   );

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import heroVideo from "../../brand/alltime-hero.mp4";
+import heroVideo from "../../brand/alltime-hero-web.mp4";
 import heroPoster from "../../brand/alltime-hero-poster.jpg";
 
-export default function Hero() {
+export default function Hero({ onReady }) {
   const videoRef = useRef(null);
   const [videoFailed, setVideoFailed] = useState(false);
 
@@ -40,7 +40,11 @@ export default function Hero() {
             preload="auto"
             poster={heroPoster}
             tabIndex="-1"
-            onError={() => setVideoFailed(true)}
+            onCanPlay={onReady}
+            onError={() => {
+              setVideoFailed(true);
+              onReady?.();
+            }}
           >
             <source src={heroVideo} type="video/mp4" />
           </video>
@@ -62,10 +66,6 @@ export default function Hero() {
         <span>Pollachi &amp; Coimbatore</span>
       </div>
 
-      <a className="scrollcue" href="#treatments" aria-label="Scroll to explore treatments">
-        <span aria-hidden="true" />
-        <small>Scroll</small>
-      </a>
     </section>
   );
 }

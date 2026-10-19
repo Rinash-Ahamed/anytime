@@ -1,15 +1,40 @@
 /* Final art-direction layer. Kept separate so the original responsive system remains intact. */
 :root{--head:96px;--paper:#edf3ed;--hair:rgba(15,93,78,.14)}
 body{background:var(--ivory)}
+body.site-loading{overflow:hidden}
 html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
 ::-webkit-scrollbar{width:12px;height:12px}
 ::-webkit-scrollbar-track{background:#e5eee6}
 ::-webkit-scrollbar-thumb{border:3px solid #e5eee6;border-radius:999px;background:var(--forest)}
 ::-webkit-scrollbar-thumb:hover{background:var(--sage)}
-.liquid-site-bg{display:none}
 .section{padding:clamp(68px,7.5vw,112px) max(var(--pad),calc((100vw - 1420px)/2))}
 .display{font-size:clamp(2.7rem,4.8vw,5.2rem);font-weight:500;letter-spacing:-.042em}
 .display em{font-style:italic;font-weight:400}
+
+/* Initial brand reveal while the hero video buffers behind it. */
+.initial-loader{
+  position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(circle at 50% 46%,rgba(124,183,126,.17),transparent 32%),linear-gradient(145deg,#031f1a 0%,#073b31 55%,#0f5d4e 100%);
+  opacity:1;visibility:visible;transition:opacity .6s var(--ease),visibility .6s step-end
+}
+.initial-loader::before{
+  content:"";position:absolute;width:min(74vw,720px);aspect-ratio:1;border:1px solid rgba(232,243,234,.1);border-radius:50%;
+  box-shadow:0 0 0 72px rgba(232,243,234,.025),0 0 0 144px rgba(232,243,234,.018);animation:loader-orbit 7s linear infinite
+}
+.initial-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.initial-loader__content{position:relative;display:grid;justify-items:center;gap:28px}
+.initial-loader__halo{
+  position:relative;display:grid;place-items:center;width:clamp(128px,14vw,174px);aspect-ratio:1;border-radius:50%;
+  background:rgba(250,250,247,.97);box-shadow:0 24px 70px rgba(1,18,14,.28),0 0 0 1px rgba(232,243,234,.18)
+}
+.initial-loader__halo::after{content:"";position:absolute;inset:-13px;border:1px solid rgba(217,191,131,.42);border-radius:50%;animation:loader-ring 2.2s var(--ease) infinite}
+.initial-loader__logo{display:block;width:76%;height:76%;object-fit:contain;animation:loader-breathe 2.2s var(--ease) infinite}
+.initial-loader__line{position:relative;width:150px;height:1px;overflow:hidden;background:rgba(232,243,234,.18)}
+.initial-loader__line::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#7cb77e,#d9bf83);transform:scaleX(.18);transform-origin:left;animation:loader-progress 1.7s var(--ease) infinite}
+@keyframes loader-orbit{to{transform:rotate(360deg)}}
+@keyframes loader-ring{0%,100%{transform:scale(.96);opacity:.38}50%{transform:scale(1.04);opacity:.9}}
+@keyframes loader-breathe{0%,100%{transform:scale(.96)}50%{transform:scale(1.025)}}
+@keyframes loader-progress{0%{transform:translateX(-100%) scaleX(.22)}55%{transform:translateX(0) scaleX(.72)}100%{transform:translateX(100%) scaleX(.3)}}
 
 /* Navigation */
 .header,.header.is-solid,.header:not(.is-solid):not(.menu-open){background:transparent;border:0;box-shadow:none;backdrop-filter:none}
@@ -36,7 +61,7 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
 .hero--cinematic::after{box-shadow:inset 0 0 110px rgba(4,31,26,.14)}
 .hero__content{width:min(47vw,690px);gap:clamp(17px,2vw,27px);text-shadow:0 3px 30px rgba(2,28,23,.34)}
 .hero--cinematic .hero__title{max-width:10ch;font-size:clamp(3.5rem,5.5vw,6.4rem);font-weight:500;line-height:.94;letter-spacing:-.052em}
-.hero--cinematic .hero__title em{font-weight:400;color:#f0f5ed}
+.hero--cinematic .hero__title em{font-weight:400;color:#acd4ae}
 .hero--cinematic .hero__lead{max-width:34rem;line-height:1.65}
 .hero--cinematic .btn{min-height:54px;padding-inline:25px;border-radius:9px}
 .hero__primary{box-shadow:0 14px 34px rgba(3,29,24,.2)}
@@ -373,4 +398,113 @@ html{scrollbar-color:var(--forest) #e5eee6;scrollbar-width:thin}
   .testimonials__rail{scroll-behavior:auto}
   .testimonials__controls button,.testimonials__progress i{transition:none}
   .testimonials__controls button:hover:not(:disabled){transform:none}
+}
+
+/* Final density and clarity pass */
+:root{--muted:#4f5a53}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--head) + 18px)}
+body{line-height:1.65}
+p{max-width:70ch;text-wrap:pretty}
+.section{padding-block:clamp(60px,6vw,92px)}
+.section__head{margin-bottom:clamp(30px,4vw,48px)}
+
+.treatments{padding-top:clamp(76px,7vw,104px)}
+.treatments__head{gap:clamp(22px,4vw,58px)}
+.treatments__grid{gap:clamp(14px,1.8vw,24px);padding-bottom:clamp(14px,2vw,28px)}
+.treatments .svc:nth-child(even){margin-top:clamp(18px,2vw,28px)}
+
+.journey{padding-top:clamp(88px,8vw,122px);padding-bottom:clamp(62px,6vw,88px)}
+.journey__head{gap:clamp(26px,5vw,78px);margin-bottom:clamp(30px,4vw,48px)}
+.journey__icon{margin-bottom:clamp(26px,3vw,40px)}
+
+.philosophy{margin-top:clamp(34px,4vw,58px);padding-top:clamp(68px,7vw,98px);padding-bottom:clamp(68px,7vw,98px);gap:clamp(30px,5vw,68px)}
+.philosophy .lede,.pillars p{color:rgba(250,250,247,.76)}
+.philosophy__body{gap:20px}
+.pillars{gap:12px 24px}
+
+.gallery{padding-top:clamp(68px,7vw,102px);padding-bottom:clamp(74px,8vw,112px)}
+.gallery .section__head{margin-bottom:clamp(30px,4vw,42px)}
+.standards{margin-top:-44px;padding-top:clamp(78px,8vw,110px);padding-bottom:clamp(60px,6vw,88px)}
+.standards .section__head{margin-bottom:30px}
+.standards__grid p{color:rgba(250,250,247,.76)}
+
+.testimonials{gap:clamp(32px,5vw,72px)}
+.testimonials__intro{gap:16px}
+.testimonials__controls{margin-top:4px}
+.testimonials__rail{padding-top:14px;padding-bottom:32px}
+.testimonial__card{min-height:286px;padding:clamp(26px,2.6vw,34px);gap:22px}
+
+.faq{gap:clamp(34px,6vw,86px);padding-top:clamp(58px,6vw,86px);padding-bottom:clamp(86px,8vw,118px)}
+.faq__intro{gap:18px}
+.faq__item summary{padding-block:21px}
+
+.book{gap:clamp(32px,5vw,68px);padding-top:clamp(98px,9vw,136px);padding-bottom:clamp(68px,7vw,100px)}
+.book .lede{color:rgba(250,250,247,.8)}
+.book__intro{gap:16px}
+.form{gap:14px;padding:clamp(22px,3vw,36px)}
+
+.footer{padding-top:clamp(56px,6vw,84px)}
+.footer__top{gap:clamp(38px,6vw,78px);padding-bottom:clamp(40px,5vw,62px)}
+.footer__bottom{align-items:center}
+.footer__developer{margin-left:auto;font-size:.54rem;letter-spacing:.08em;color:rgba(250,250,247,.46)}
+.footer__developer a{margin-left:4px;border-bottom:1px solid rgba(168,209,170,.28);color:rgba(250,250,247,.66)}
+
+@media (min-width:901px) and (max-width:1600px) and (max-height:950px){
+  .hero.hero--cinematic{align-items:flex-end;padding-top:calc(var(--head) + 32px);padding-bottom:104px}
+  .hero__content{width:min(50vw,640px);gap:16px}
+}
+
+@media (max-width:760px){
+  html{scroll-padding-top:calc(var(--head) + 10px)}
+  .section{padding-block:48px}
+  .section__head{margin-bottom:28px}
+  .hero__content{gap:14px}
+  .treatments{padding-top:66px}
+  .treatments .svc:nth-child(even){margin-top:0}
+  .journey{padding-top:78px;padding-bottom:58px}
+  .journey__head{margin-bottom:30px}
+  .philosophy{margin-top:30px;padding-top:60px;padding-bottom:64px}
+  .gallery{padding-top:60px;padding-bottom:72px}
+  .standards{margin-top:-30px;padding-top:70px;padding-bottom:54px}
+  .testimonials{padding-top:52px;padding-bottom:48px;gap:26px}
+  .testimonials__rail{padding-bottom:24px}
+  .testimonial__card{min-height:276px}
+  .faq{padding-top:52px;padding-bottom:78px;gap:30px}
+  .book{padding-top:86px;padding-bottom:58px;gap:28px}
+  .footer{padding-top:54px}
+  .footer__top{gap:38px;padding-bottom:42px}
+  .footer__developer{margin-left:0}
+}
+
+/* Slow colour movement for the second tone in display headings. */
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .display em,
+  .hero--cinematic .hero__title em{
+    background-image:linear-gradient(100deg,#0f5d4e 0%,#7cb77e 32%,#b08d4f 58%,#0f5d4e 100%);
+    background-position:0% 50%;
+    background-repeat:no-repeat;
+    background-size:240% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    animation:heading-gradient-drift 8s ease-in-out infinite alternate
+  }
+  .display--light em,
+  .philosophy .display em,
+  .book .display em,
+  .hero--cinematic .hero__title em{
+    background-image:linear-gradient(100deg,#e8f3ea 0%,#9fcca1 30%,#d9bf83 58%,#e8f3ea 100%)
+  }
+}
+
+@keyframes heading-gradient-drift{
+  from{background-position:0% 50%}
+  to{background-position:100% 50%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .display em,.hero--cinematic .hero__title em{animation:none;background-position:50% 50%}
+  .initial-loader::before,.initial-loader__halo::after,.initial-loader__logo,.initial-loader__line::after{animation:none}
 }

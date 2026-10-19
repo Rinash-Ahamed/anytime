@@ -61,6 +61,7 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <p>© {new Date().getFullYear()} {site.brand.name}. All rights reserved.</p>
+        <p className="footer__developer">Developer connect - <a href="https://www.httpier.in" target="_blank" rel="noreferrer">www.httpier.in</a></p>
         <p><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></p>
       </div>
     </footer>

@@ -6,11 +6,11 @@ The website uses a coordinated set of locally stored licensed photographs. Image
 
 | File in `images/` | Website use | Source |
 |---|---|---|
-| `massage-full-body.jpg` | Full body massage | [Massage a Domicile](https://unsplash.com/photos/nMVUTY8_gGw) |
+| `male-shoulder-massage.jpg` | Full body massage and philosophy slideshow | Project asset |
 | `massage-deep-tissue.jpg` | Deep tissue massage | [Jakub Klucký](https://unsplash.com/photos/7yeqemd-p90) |
-| `sports-recovery.jpg` | Sports recovery | [Julius Toltesi](https://unsplash.com/photos/close-up-of-a-person-receiving-treatment-on-their-heel-QBzckSn4fpo) |
-| `facial-treatment.jpg` | Facial and de-tan | [Rosa Rafael](https://unsplash.com/photos/Pe9IXUuC6QU) |
-| `spa-towels.jpg` | Philosophy section | [Usen Parmanov](https://unsplash.com/photos/I3VF9Cu4agc) |
+| `sports-recovery.jpg` | Foot massage and philosophy slideshow | [Julius Toltesi](https://unsplash.com/photos/close-up-of-a-person-receiving-treatment-on-their-heel-QBzckSn4fpo) |
+| `male-facial-treatment.jpg` | Facial and de-tan and philosophy slideshow | Project asset |
+| `male-wellness.jpg` | Philosophy slideshow | Project asset |
 | `male-facial-mask.jpg` | Gallery | [ROMAN ODINTSOV / Pexels](https://www.pexels.com/photo/man-getting-face-mask-applied-on-his-face-5912209/) |
 | `spa-interior.jpg` | Gallery | [Camille Brodard](https://unsplash.com/photos/VxAwTeiqDao) |
 | `spa-candles.jpg` | Gallery | [Denny Müller](https://unsplash.com/photos/s9zGsWDiFO4) |
