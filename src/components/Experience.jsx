@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import Photo from "./Photo";
 import { experienceImages, gallery } from "../data/site";
+import expectSession from "../../images/expect-session.webp";
+import expectOliveOil from "../../images/expect-olive-oil.webp";
+import expectProfessionalCare from "../../images/expect-professional-care.webp";
+import expectHomeService from "../../images/expect-home-service.webp";
 
 const pillars = [
   ["Personalised treatments", "Each session is adjusted to what your body needs on the day."],
@@ -58,10 +62,10 @@ export function Gallery() {
 }
 
 const standards = [
-  ["clock", "60-minute sessions", "Full body sessions run a full hour, with no rushing."],
-  ["leaf", "Premium olive oil", "Treatments use premium olive oil for a smooth, comfortable massage."],
-  ["person", "Professional and safe", "Calm, respectful care from a trained, courteous therapist."],
-  ["home", "We come to you", "Home service only, across Pollachi and Coimbatore."]
+  { icon: "clock", title: "60-minute sessions", copy: "Full body sessions run a full hour, with no rushing.", image: expectSession },
+  { icon: "leaf", title: "Premium olive oil", copy: "Treatments use premium olive oil for a smooth, comfortable massage.", image: expectOliveOil },
+  { icon: "person", title: "Professional and safe", copy: "Calm, respectful care from a trained, courteous therapist.", image: expectProfessionalCare },
+  { icon: "home", title: "We come to you", copy: "Home service only, across Pollachi and Coimbatore.", image: expectHomeService }
 ];
 
 function StandardIcon({ type }) {
@@ -72,5 +76,5 @@ function StandardIcon({ type }) {
 }
 
 export function Standards() {
-  return <section className="section standards" aria-labelledby="standardsTitle"><header className="section__head section__head--center reveal"><h2 className="display display--sm" id="standardsTitle">What you can <em>expect.</em></h2></header><ul className="standards__grid">{standards.map(([icon, title, copy]) => <li className="reveal" key={title}><StandardIcon type={icon} /><h3>{title}</h3><p>{copy}</p></li>)}</ul></section>;
+  return <section className="section standards" aria-labelledby="standardsTitle"><header className="section__head section__head--center reveal"><h2 className="display display--sm" id="standardsTitle">What you can <em>expect.</em></h2></header><ul className="standards__grid">{standards.map(({ icon, title, copy, image }) => <li className="reveal" key={title} style={{ "--standard-image": `url(${image})` }}><StandardIcon type={icon} /><h3>{title}</h3><p>{copy}</p></li>)}</ul></section>;
 }

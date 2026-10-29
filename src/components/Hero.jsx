@@ -4,9 +4,27 @@ import heroPoster from "../../brand/alltime-hero-poster.jpg";
 
 export default function Hero({ onReady }) {
   const videoRef = useRef(null);
+  const onReadyRef = useRef(onReady);
   const [videoFailed, setVideoFailed] = useState(false);
+  const [posterOnly, setPosterOnly] = useState(() => window.matchMedia("(max-width: 760px)").matches);
 
   useEffect(() => {
+    onReadyRef.current = onReady;
+  }, [onReady]);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 760px)");
+    const syncPosterMode = () => setPosterOnly(mobileQuery.matches);
+    syncPosterMode();
+    mobileQuery.addEventListener?.("change", syncPosterMode);
+    return () => mobileQuery.removeEventListener?.("change", syncPosterMode);
+  }, []);
+
+  useEffect(() => {
+    if (posterOnly) {
+      onReadyRef.current?.();
+      return undefined;
+    }
     const video = videoRef.current;
     if (!video) return undefined;
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -31,7 +49,7 @@ export default function Hero({ onReady }) {
       observer.disconnect();
       motionQuery.removeEventListener?.("change", syncPlayback);
     };
-  }, []);
+  }, [posterOnly]);
 
   return (
     <section className={`hero hero--cinematic${videoFailed ? " video-unavailable" : ""}`} id="top">
@@ -40,7 +58,7 @@ export default function Hero({ onReady }) {
         style={{ backgroundImage: `url(${heroPoster})` }}
         aria-hidden="true"
       >
-        {!videoFailed && (
+        {!videoFailed && !posterOnly && (
           <video
             ref={videoRef}
             className="hero__video"
@@ -51,10 +69,10 @@ export default function Hero({ onReady }) {
             preload="auto"
             poster={heroPoster}
             tabIndex="-1"
-            onCanPlay={onReady}
+            onCanPlay={() => onReadyRef.current?.()}
             onError={() => {
               setVideoFailed(true);
-              onReady?.();
+              onReadyRef.current?.();
             }}
           >
             <source src={heroVideo} type="video/mp4" />

@@ -481,11 +481,24 @@ p{max-width:70ch;text-wrap:pretty}
   .testimonials{padding-top:52px;padding-bottom:48px;gap:26px}
   .testimonials__rail{padding-bottom:24px}
   .testimonial__card{min-height:276px}
-  .faq{padding-top:68px;padding-bottom:78px;gap:30px}
+  .faq{align-items:stretch;padding-top:68px;padding-bottom:78px;gap:44px}
+  .faq__intro{width:100%;gap:16px;padding-bottom:2px}
+  .faq__intro>p{max-width:32rem;line-height:1.7}
+  .faq__intro>a{
+    display:inline-flex;align-items:center;width:fit-content;max-width:100%;margin-top:6px;padding:11px 15px;
+    border:1px solid rgba(15,93,78,.16);border-radius:999px;background:#e8f3ea;line-height:1.4;white-space:normal
+  }
+  .faq__list{width:100%;min-width:0}
   .book{padding-top:86px;padding-bottom:58px;gap:28px}
   .footer{padding-top:54px}
   .footer__top{gap:38px;padding-bottom:42px}
   .footer__developer{margin-left:0}
+}
+
+@media (max-width:420px){
+  .faq{gap:38px}
+  .faq__intro>a{padding:10px 13px;font-size:.6rem;letter-spacing:.08em}
+  .faq__item summary{grid-template-columns:minmax(0,1fr) 30px;gap:12px}
 }
 
 /* Slow colour movement for the second tone in display headings. */
@@ -519,8 +532,56 @@ p{max-width:70ch;text-wrap:pretty}
   to{background-position:100% 50%}
 }
 
+/* Bespoke imagery gives every expectation card its own visual story. */
+.standards__grid li,
+.standards__grid li:nth-child(-n+2),
+.standards__grid li:nth-child(2n),
+.standards__grid li:hover,
+.standards__grid li:nth-child(2n):hover{
+  position:relative;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  min-height:clamp(290px,24vw,350px);
+  overflow:hidden;
+  isolation:isolate;
+  padding:clamp(22px,2vw,28px);
+  border:1px solid rgba(250,250,247,.12);
+  background-color:#0f5d4e;
+  background-image:
+    linear-gradient(180deg,rgba(5,28,24,.18) 0%,rgba(5,28,24,.28) 38%,rgba(5,28,24,.94) 100%),
+    var(--standard-image);
+  background-position:center;
+  background-size:cover;
+  box-shadow:0 18px 44px rgba(8,47,40,.12);
+  transition:border-color .25s ease,box-shadow .25s ease,transform .25s ease
+}
+.standards__grid li:hover,
+.standards__grid li:nth-child(2n):hover{
+  border-color:rgba(217,191,131,.62);
+  box-shadow:0 24px 52px rgba(8,47,40,.2);
+  transform:translateY(-4px)
+}
+.standards__grid li::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:linear-gradient(120deg,rgba(15,93,78,.3),transparent 52%);
+  pointer-events:none
+}
+.standards__grid svg{position:relative;z-index:1;margin-bottom:0;box-shadow:0 8px 24px rgba(5,28,24,.22)}
+.standards__grid h3{align-self:end;margin-top:30px;text-shadow:0 2px 18px rgba(0,0,0,.36)}
+.standards__grid p{text-shadow:0 2px 14px rgba(0,0,0,.42)}
+
+@media (max-width:760px){
+  .standards__grid li,
+  .standards__grid li:nth-child(-n+2),
+  .standards__grid li:nth-child(2n){min-height:290px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .standards__grid li,.standards__grid li:hover{transition:none;transform:none}
   .display em,.hero--cinematic .hero__title em{animation:none;background-position:50% 50%}
   .initial-loader::before,.initial-loader__halo::after,.initial-loader__logo,.initial-loader__line::after{animation:none}
 }
